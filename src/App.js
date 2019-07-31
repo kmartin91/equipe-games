@@ -9,10 +9,24 @@ import "./App.css";
 
 import * as informations from "./data/informations.json";
 
+const authorIntroductions = [
+  "Propos recueillis par ",
+  "Écrit par ",
+  "Conférence fraîchement récolté par ",
+  "Rapporté par ",
+  "Dactylographié par ",
+  "Gribouillé par ",
+  "Griffonné par",
+  "Rédigé par ",
+  "Noté par ",
+  "Envoyé à l'impression par "
+]
+
 const App = ({ location }) => {
   const [weekInformations, setWeekInformations] = useState({});
   const [mainInformation, setMainInformation] = useState({});
   const [randomImage, setRandomImage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isReading, setIsReading] = useState(false);
   const { week: weekKey } = queryString.parse(location.search) || {};
 
@@ -20,17 +34,29 @@ const App = ({ location }) => {
     const weekInformation = informations[weekKey]
       ? informations[weekKey]
       : informations["week1"];
-    const { main } = weekInformation;
     setWeekInformations(weekInformation);
-    setMainInformation(main);
+    setMainInformation(weekInformation.articles[0]);
 
+    setIsLoading(true);
     async function getImage() {
       const image = await getRandomSoccerImage();
       setRandomImage(image);
+      setIsLoading(false);
     }
 
     getImage();
   }, [location.search, weekKey]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    async function getImage() {
+      const image = await getRandomSoccerImage();
+      setRandomImage(image);
+      setIsLoading(false);
+    }
+
+    getImage();
+  }, [mainInformation]);
 
   const readInfo = event => {
     event.preventDefault();
@@ -43,11 +69,12 @@ const App = ({ location }) => {
   };
 
   const { title, subtitle, message, author } = mainInformation;
-  const { sides = [] } = weekInformations || {};
+  const { articles = [] } = weekInformations || {};
   const htmlTitle =
     title && title.length > 16 ? `${title.substring(0, 16)}...` : title;
 
   const url = weekKey ? `/?week=${weekKey}` : "/";
+  const authorIntroduction = authorIntroductions[Math.floor(Math.random() * authorIntroductions.length)]
 
   return (
     <div className="EquipeGames">
@@ -69,20 +96,20 @@ const App = ({ location }) => {
       {randomImage && (
         <div className="Articles">
           <div className="Main">
-            <div className={classnames("Image", { Image_Read: isReading })}>
+            <div className={classnames("Image", { Image_Read: isReading, Image_Loading: isLoading })}>
               <img
                 src={randomImage}
                 className="MainImage"
                 alt="La folie à la Beaujoire"
               />
               <div className="Overlay" />
-              <div className="Text">
-                <div className="HeadLine"> {title} </div>
-                <div className="SubHeadLine"> {subtitle} </div>
+              <div className="Text" onClick={readInfo}>
+                <div className="HeadLine">"&nbsp;{title}&nbsp;"</div>
+                <div className="SubHeadLine">"&nbsp;{subtitle}&nbsp;"</div>
                 {!isReading && (
-                  <button className="ButtonLikeLink" onClick={readInfo}>
-                    Lire notre article exclusif
-                  </button>
+                  <div className="ChevronContainer">
+                    <div className="Chevron"></div>
+                  </div>
                 )}
               </div>
             </div>
@@ -90,15 +117,23 @@ const App = ({ location }) => {
               <div
                 className={classnames("Article", { Article_Read: isReading })}
               >
-                {message && message.map(line => <p className="Line">{line}</p>)}
+                {message && message.map(line => <p className={classnames("Line", { LineItalic: line[0]==='"' || line[line.length - 1]==='"' })}>{line}</p>)}
+            {author && <div className="Author">{authorIntroduction}{author}</div>}
               </div>
             )}
           </div>
           <div className="Sides">
-            {sides.map(({ title, subtitle }, key) => {
-              if (key === "main") return null;
-
-              return <div key={title}>{title}</div>;
+            {articles.map((article,key) => {
+              const { title, subtitle, message } = article || {};
+              if (title === mainInformation.title) return null;
+              return (
+                <div className="Side" key={title} onClick={() => setMainInformation(article)}>
+                  <h2>{title}</h2>
+                  <h3>{subtitle}</h3>
+                  <p>{message[0].substring(0, 200)}</p>
+                  {(message.length > 1 || message[0].length > 200) && <div className="ReadMore">...lire plus</div>}
+                </div>
+              )
             })}
           </div>
         </div>
