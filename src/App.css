@@ -45,7 +45,7 @@ html,body {
 }
 
 .Image {
-  height: 70vh;
+  height: 80vh;
   position: relative;
   transition: all ease-in-out 1s;
 }
