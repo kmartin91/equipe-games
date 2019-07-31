@@ -20,7 +20,7 @@ const authorIntroductions = [
   "Rédigé par ",
   "Noté par ",
   "Envoyé à l'impression par "
-]
+];
 
 const App = ({ location }) => {
   const [weekInformations, setWeekInformations] = useState({});
@@ -55,6 +55,8 @@ const App = ({ location }) => {
       setIsLoading(false);
     }
 
+    window.scrollTo(0, 0);
+
     getImage();
   }, [mainInformation]);
 
@@ -74,7 +76,8 @@ const App = ({ location }) => {
     title && title.length > 16 ? `${title.substring(0, 16)}...` : title;
 
   const url = weekKey ? `/?week=${weekKey}` : "/";
-  const authorIntroduction = authorIntroductions[Math.floor(Math.random() * authorIntroductions.length)]
+  const authorIntroduction =
+    authorIntroductions[Math.floor(Math.random() * authorIntroductions.length)];
 
   return (
     <div className="EquipeGames">
@@ -85,7 +88,7 @@ const App = ({ location }) => {
       <header className="Header">
         {isReading && (
           <button className="ButtonLikeLink Return" onClick={stopReading}>
-            Retour à l'accueil
+            <div className="Chevron Chevron_Left" />
           </button>
         )}
         <a href={url} className="Logo">
@@ -96,7 +99,12 @@ const App = ({ location }) => {
       {randomImage && (
         <div className="Articles">
           <div className="Main">
-            <div className={classnames("Image", { Image_Read: isReading, Image_Loading: isLoading })}>
+            <div
+              className={classnames("Image", {
+                Image_Read: isReading,
+                Image_Loading: isLoading
+              })}
+            >
               <img
                 src={randomImage}
                 className="MainImage"
@@ -108,7 +116,7 @@ const App = ({ location }) => {
                 <div className="SubHeadLine">"&nbsp;{subtitle}&nbsp;"</div>
                 {!isReading && (
                   <div className="ChevronContainer">
-                    <div className="Chevron"></div>
+                    <div className="Chevron" />
                   </div>
                 )}
               </div>
@@ -117,23 +125,44 @@ const App = ({ location }) => {
               <div
                 className={classnames("Article", { Article_Read: isReading })}
               >
-                {message && message.map(line => <p className={classnames("Line", { LineItalic: line[0]==='"' || line[line.length - 1]==='"' })}>{line}</p>)}
-            {author && <div className="Author">{authorIntroduction}{author}</div>}
+                {message &&
+                  message.map(line => (
+                    <p
+                      className={classnames("Line", {
+                        LineItalic:
+                          line[0] === '"' || line[line.length - 1] === '"'
+                      })}
+                    >
+                      {line}
+                    </p>
+                  ))}
+                {author && (
+                  <div className="Author">
+                    {authorIntroduction}
+                    {author}
+                  </div>
+                )}
               </div>
             )}
           </div>
           <div className="Sides">
-            {articles.map((article,key) => {
+            {articles.map((article, key) => {
               const { title, subtitle, message } = article || {};
               if (title === mainInformation.title) return null;
               return (
-                <div className="Side" key={title} onClick={() => setMainInformation(article)}>
+                <div
+                  className="Side"
+                  key={title}
+                  onClick={() => setMainInformation(article)}
+                >
                   <h2>{title}</h2>
                   <h3>{subtitle}</h3>
                   <p>{message[0].substring(0, 200)}</p>
-                  {(message.length > 1 || message[0].length > 200) && <div className="ReadMore">...lire plus</div>}
+                  {(message.length > 1 || message[0].length > 200) && (
+                    <div className="ReadMore">...lire plus</div>
+                  )}
                 </div>
-              )
+              );
             })}
           </div>
         </div>

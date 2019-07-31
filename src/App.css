@@ -171,8 +171,21 @@ body {
   animation: move-to-bottom 1s ease-in-out infinite alternate;
 }
 
+.Chevron_Left {
+  margin: 0;
+  border-color: black;
+  animation: none;
+  transform: rotate(225deg);
+  width: 18px;
+  height: 18px;
+}
+
 .LineItalic {
   font-style: italic;
+}
+
+.Line {
+  text-align: justify;
 }
 
 .Author {
@@ -180,4 +193,25 @@ body {
   font-weight: bold;
   display: flex;
   justify-content: flex-end;
+}
+
+@media screen and (max-width:768px) {
+  .Articles {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .Main {
+    flex-basis: 100%;
+    margin: 0;
+  }
+
+  .HeadLine {
+    font-size: 1.5rem;
+  }
+
+  .SubHeadLine {
+    font-size: 1rem;
+  }
+
 }
