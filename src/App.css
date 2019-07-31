@@ -19,9 +19,6 @@ html,body {
 
 .EquipeGames {
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   padding: 16px;
 }
 
@@ -175,16 +172,16 @@ html,body {
 }
 
 .Chevron {
-  margin-top: 25px;
-  display: block;
-  width: 25px;
-  height: 25px;
+  animation: move-to-bottom 1s ease-in-out infinite alternate;
   border-top: 5px solid white;
   border-right: 5px solid white;
   border-width: 3px;
+  display: block;
+  height: 25px;
+  margin-top: 25px;
   transform: rotate(135deg);
   text-align: center;
-  animation: move-to-bottom 1s ease-in-out infinite alternate;
+  width: 25px;
 }
 
 .Chevron_Left {
@@ -218,7 +215,7 @@ html,body {
   }
 
   .Main {
-    flex-basis: 100%;
+    /* flex-basis: 100%; */
     margin: 0;
   }
 
