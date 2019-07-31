@@ -28,7 +28,6 @@ const Lines = ({ children }) => {
   let danglingItalic = false;
   const theLines = children.reduce((acc, line) => {
     const parts = line.split('"');
-    console.log(parts);
     let theLine = "";
     // either " at beginning or end
     if (parts.length === 2) {
@@ -168,7 +167,12 @@ const App = ({ location }) => {
                 className={classnames("Article", { Article_Read: isReading })}
               >
                 <Lines>{message}</Lines>
-                {author && <div className="Author">{authorIntroduction}{author}</div>}
+                {author && (
+                  <div className="Author">
+                    {authorIntroduction}
+                    {author}
+                  </div>
+                )}
               </div>
             )}
           </div>
