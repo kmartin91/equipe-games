@@ -90,16 +90,7 @@ const App = ({ location }) => {
   }, [location.search, weekKey]);
 
   useEffect(() => {
-    setIsLoading(true);
-    async function getImage() {
-      const image = await getRandomSoccerImage();
-      setRandomImage(image);
-      setIsLoading(false);
-    }
-
-    window.scrollTo(0, 0);
-
-    getImage();
+    
   }, [mainInformation]);
 
   const readInfo = event => {
@@ -111,6 +102,19 @@ const App = ({ location }) => {
     event.preventDefault();
     setIsReading(false);
   };
+
+  const handleReadArticle = (article) => {
+    setMainInformation(article);
+    setIsLoading(true);
+    async function getImage() {
+      const image = await getRandomSoccerImage();
+      setRandomImage(image);
+      setIsLoading(false);
+      setIsReading(true);
+    }
+    window.scrollTo(0, 0);
+    getImage();
+  }
 
   const { title, subtitle, message, author } = mainInformation;
   const { articles = [] } = weekInformations || {};
@@ -180,7 +184,7 @@ const App = ({ location }) => {
                 <div
                   className="Side"
                   key={title}
-                  onClick={() => setMainInformation(article)}
+                  onClick={() => handleReadArticle(article)}
                 >
                   <h2>{title}</h2>
                   <h3>{subtitle}</h3>
