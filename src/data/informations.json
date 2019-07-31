@@ -1,22 +1,23 @@
 {
   "week1": {
-    "main": {
-      "author": "Dimitri Cracker",
-      "title": "Le Président m'a menti",
-      "subtitle": "Je suis furieux.",
-      "message": [
-        "Le nouveau coach du Pastis FC en conférence de presse d'après match a vivement critiqué le président de son club.",
-        "\"Je suis furieux. Je n’ai pas le mots. Mon president me promet carte blanche sur le mercato et je me retrouve avec un effectif sans veritable gardien de metier. Et vla ti pas qu’ca nous coute deux points.",
-        "",
-        "La periode des transferts n’est pas termine mais si nous ne vendons pas, qu’est ce que j’ai ? Deux pains et trois cacahuètes. \"",
-        "Il est cependant resté très courtois en parlant du prochain match: \"Bravo a l’equipe adverse, on va s’accrocher de notre côté.\""
-      ]
-    },
-    "sides": [
+    "articles": [
+      {
+        "author": "Dimitri Cracker",
+        "title": "Le Président m'a menti",
+        "subtitle": "Je suis furieux.",
+        "message": [
+          "Le nouveau coach du Pastis FC en conférence de presse d'après match a vivement critiqué le président de son club.",
+          "\"Je suis furieux. Je n’ai pas le mots. Mon president me promet carte blanche sur le mercato et je me retrouve avec un effectif sans veritable gardien de metier. Et vla ti pas qu’ca nous coute deux points.",
+          "",
+          "La periode des transferts n’est pas termine mais si nous ne vendons pas, qu’est ce que j’ai ? Deux pains et trois cacahuètes. \"",
+          "Il est cependant resté très courtois en parlant du prochain match:",
+          "\"Bravo a l’equipe adverse, on va s’accrocher de notre côté.\""
+        ]
+      },
       {
         "author": "Fabien Pelouse",
         "title": "Sans ces 2 buts, on aurait gagner le match !",
-        "subtile": "Ce résultat est tout sauf une bonne nouvelle pour nous",
+        "subtitle": "Ce résultat est tout sauf une bonne nouvelle pour nous",
         "message": [
           "Le coach de l'ingénieuse équipe Doubles Names nous en a dit un peu plus sur ce qu'il pensait du match: ",
           "",
@@ -42,7 +43,7 @@
       {
         "author": "Bixente Lizaramou",
         "title": "Furieux contre son attaquant",
-        "subtitle": "Peut-être que Demarconnay aurait du éviter les 4 canettes de Tourtel à la mi-temp",
+        "subtitle": "Peut-être que Demarconnay aurait du éviter les 4 canettes de Tourtel à la mi-temps",
         "message": [
           "\"Après une première période sans soucis, on a senti que la mentale était retombée après la sortie des vestiaires… Peut-être que Demarconnay aurait du éviter les 4 canettes de Tourtel à la mi-temps, ce qui aurait évité sa descente d’organe et ce petit pont fomenté par Wissa…",
           "",
