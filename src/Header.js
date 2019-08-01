@@ -1,5 +1,4 @@
 import React from "react";
-import * as config from "./config/config.json";
 
 const Header = ({ isHome, url, logo, backHome }) => {
   return (
@@ -14,8 +13,10 @@ const Header = ({ isHome, url, logo, backHome }) => {
       <a href={url} className="HeaderZone Logo">
         <img src={logo} alt="Equipe Games, le meilleur site sportif" />
       </a>
-      <div class="HeaderZone Menu">
-        <ul>{config.ENV === "DEV" && <li>Archive</li>}</ul>
+      <div className="HeaderZone Menu">
+        <ul>
+          {process.env.REACT_APP_ENV !== "development" && <li>Archive</li>}
+        </ul>
       </div>
     </header>
   );
