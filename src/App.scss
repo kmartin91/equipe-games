@@ -56,7 +56,7 @@ li {
 }
 
 .Menu > ul {
-  margin-right: calc($size-l + $size-m);
+  margin-right: calc(#{$size-l} + #{$size-m});
 }
 
 .Menu > ul li {
