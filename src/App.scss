@@ -1,8 +1,11 @@
+@import '../styles/config/palette.scss';
+
 /* Standard syntax */
 @keyframes move-to-bottom {
   from {
     margin-top: 25px;
   }
+
   to {
     margin-top: 35px;
   }
@@ -10,8 +13,8 @@
 
 html,
 body {
-  font-family: futura, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #eee;
+  font-family: futura, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: palette(neutral, light);
   margin: 0;
   padding: 0;
 }
@@ -35,11 +38,12 @@ li {
   align-items: center;
   position: fixed;
   height: 75px;
+
   /* 17px is the scrollbar */
   width: calc(100% - 17px);
   z-index: 10;
   padding: 16px;
-  background-color: #eee;
+  background-color: palette(neutral, light);
 }
 
 .HeaderZone {
@@ -66,6 +70,7 @@ li {
 
 .Content {
   padding: 16px;
+
   /* 75px is the Header height */
   padding-top: calc(16px * 2 + 75px);
 }
@@ -124,7 +129,7 @@ li {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(palette(neutral, black), 0.3);
   z-index: 2;
 }
 
@@ -133,23 +138,23 @@ li {
   flex-direction: column;
   flex-basis: 30%;
   margin: 0 16px;
-  border-left: 4px dotted #aaa;
+  border-left: 4px dotted palette(neutral, neutral);
 }
 
 .Side {
-  padding: 0 16px 16px 16px;
+  padding: 0 16px 16px;
   cursor: pointer;
 }
 
 .Side > .ReadMore:hover,
 .Side:hover > h2,
 .Side:hover > h3 {
-  color: rgb(166, 47, 44);
+  color: palette(neutral, red);
   transition: all 0.3s;
 }
 
 .Side:not(:last-of-type) {
-  border-bottom: 4px dotted #aaa;
+  border-bottom: 4px dotted palette(neutral, neutral);
 }
 
 .Text {
@@ -171,20 +176,20 @@ li {
   justify-content: flex-end;
   font-style: italic;
   cursor: pointer;
-  color: black;
+  color: palette(neutral, black);
   transition: all 0.3s;
 }
 
 .HeadLine {
-  color: white;
+  color: palette(neutral, white);
   font-size: 2.5rem;
   text-align: center;
-  text-shadow: 1px 0px 1px #000000;
+  text-shadow: 1px 0 1px palette(neutral, black);
   font-style: italic;
 }
 
 .SubHeadLine {
-  color: white;
+  color: palette(neutral, white);
   font-size: 1.5rem;
   text-align: center;
   font-style: italic;
@@ -193,12 +198,12 @@ li {
 .ButtonLikeLink {
   background: none;
   border: none;
-  color: white;
+  color: palette(neutral, white);
   padding: 0;
 }
 
 .Return {
-  color: black;
+  color: palette(neutral, black);
   left: 32px;
   top: 32px;
 }
@@ -208,7 +213,7 @@ li {
   visibility: hidden;
   transition: all ease-in-out 5s 2s;
   padding: 16px;
-  background-color: white;
+  background-color: palette(neutral, white);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -224,8 +229,8 @@ li {
 
 .Chevron {
   animation: move-to-bottom 1s ease-in-out infinite alternate;
-  border-top: 5px solid white;
-  border-right: 5px solid white;
+  border-top: 5px solid palette(neutral, white);
+  border-right: 5px solid palette(neutral, white);
   border-width: 3px;
   display: block;
   height: 25px;
@@ -237,7 +242,7 @@ li {
 
 .Chevron_Left {
   margin: 0;
-  border-color: black;
+  border-color: palette(neutral, white);
   animation: none;
   transform: rotate(225deg);
   border-width: 5px;

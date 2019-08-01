@@ -1,0 +1,16 @@
+/**
+ * Will take a color from the "colors.*.scss" files
+ *
+ * eg.
+ * a {
+ *   color: palette(purple);
+ *   &:hover {
+ *     color: palette(purple, light);
+ *   }
+ * }
+ */
+@import 'color.scss';
+
+@function palette($color, $tone: 'base') {
+  @return map-get(map-get($color-theme, $color), $tone);
+}

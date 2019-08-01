@@ -46,7 +46,7 @@
       "width": ["px", "vw", "%"],
       "min-width": ["px", "vw", "%"],
       "max-width": ["px","vw", "%"],
-      "height": ["vh", "%"],
+      "height": ["vh", "%", "px"],
       "min-height": ["px", "vh", "%"],
       "max-height": ["px", "vh", "%"],
       "/^animation/": ["s"],
