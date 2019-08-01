@@ -1,4 +1,4 @@
-@import '../styles/config/palette.scss';
+@import '../styles/config/all.scss';
 
 /* Standard syntax */
 @keyframes move-to-bottom {
@@ -40,9 +40,9 @@ li {
   height: 75px;
 
   /* 17px is the scrollbar */
-  width: calc(100% - 17px);
+  width: calc(100% - #{$size-m});
   z-index: 10;
-  padding: 16px;
+  padding: $size-m;
   background-color: palette(neutral, light);
 }
 
@@ -56,11 +56,11 @@ li {
 }
 
 .Menu > ul {
-  margin-right: calc(32px + 16px);
+  margin-right: calc($size-l + $size-m);
 }
 
 .Menu > ul li {
-  padding: 16px;
+  padding: $size-m;
   cursor: pointer;
 }
 
@@ -69,10 +69,10 @@ li {
 }
 
 .Content {
-  padding: 16px;
+  padding: $size-m;
 
   /* 75px is the Header height */
-  padding-top: calc(16px * 2 + 75px);
+  padding-top: calc(#{$size-m} * 2 + calc(#{$size-xl} + #{$size-m} + #{$size-s}));
 }
 
 .EquipeGames {
@@ -88,14 +88,14 @@ li {
 .Articles {
   display: flex;
   flex-direction: row;
-  margin: 16px;
+  margin: $size-m;
 }
 
 .Main {
   display: flex;
   flex-basis: 70%;
   flex-direction: column;
-  margin: 0 16px;
+  margin: 0 $size-m;
 }
 
 .Image {
@@ -106,8 +106,8 @@ li {
 
 .Image_Read {
   height: 25vh;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: $size-m;
+  border-top-right-radius: $size-m;
   transition: all 0.3s;
   overflow: hidden;
 }
@@ -137,12 +137,12 @@ li {
   display: flex;
   flex-direction: column;
   flex-basis: 30%;
-  margin: 0 16px;
+  margin: 0 $size-m;
   border-left: 4px dotted palette(neutral, neutral);
 }
 
 .Side {
-  padding: 0 16px 16px;
+  padding: 0 $size-m $size-m;
   cursor: pointer;
 }
 
@@ -204,18 +204,18 @@ li {
 
 .Return {
   color: palette(neutral, black);
-  left: 32px;
-  top: 32px;
+  left: $size-l;
+  top: $size-l;
 }
 
 .Article {
   opacity: 0;
   visibility: hidden;
   transition: all ease-in-out 5s 2s;
-  padding: 16px;
+  padding: $size-m;
   background-color: palette(neutral, white);
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: $size-m;
+  border-bottom-right-radius: $size-m;
 }
 
 .Article_Read {
@@ -233,23 +233,23 @@ li {
   border-right: 5px solid palette(neutral, white);
   border-width: 3px;
   display: block;
-  height: 25px;
-  margin-top: 25px;
+  height: calc(#{$size-m} + #{$size-s});
+  margin-top: calc(#{$size-m} + #{$size-s});
   transform: rotate(135deg);
   text-align: center;
-  width: 25px;
+  width: calc(#{$size-m} + #{$size-s});
 }
 
 .Chevron_Left {
   margin: 0;
-  border-color: palette(neutral, white);
+  border-color: palette(neutral, black);
   animation: none;
   transform: rotate(225deg);
   border-width: 5px;
-  width: 18px;
-  height: 18px;
+  width: $size-m;
+  height: $size-m;
   cursor: pointer;
-  margin-left: 32px;
+  margin-left: $size-l;
 }
 
 .LineItalic {
@@ -290,7 +290,7 @@ li {
   }
 
   .Chevron_Left {
-    margin-left: 8px;
+    margin-left: $size-s;
   }
 
   .Menu > ul {
