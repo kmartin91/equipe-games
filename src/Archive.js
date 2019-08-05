@@ -3,7 +3,7 @@ import './Archive.scss';
 
 const Archive = ({ informations }) => {
   return (
-    <div class="Archive">
+    <div className="Archive">
       <ul className="Archive__List">
         {informations.map(info => (
           <a href={`/?week=${info.order}`}>

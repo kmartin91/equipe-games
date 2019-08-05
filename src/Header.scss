@@ -45,4 +45,35 @@
   .Header__Logo {
     justify-content: center;
   }
+
+  .Header__Chevron {
+    border-top: 5px solid palette(neutral, white);
+    border-right: 5px solid palette(neutral, white);
+    border-color: palette(neutral, black);
+    border-width: 5px;
+    display: block;
+    width: $size-m;
+    height: $size-m;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .Header__Chevron_Left {
+    margin: 0;
+    transform: rotate(225deg);
+    margin-left: $size-l;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Header {
+    .Header__Menu {
+      ul {
+        margin-right: 0;
+      }
+    }
+    .Header__Chevron_Left {
+      margin-left: $size-s;
+    }
+  }
 }
