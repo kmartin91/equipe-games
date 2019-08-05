@@ -1,0 +1,173 @@
+/* define Main */
+
+@import '../styles/config/all.scss';
+
+/* Standard syntax */
+@keyframes move-to-bottom {
+  from {
+    margin-top: 25px;
+  }
+
+  to {
+    margin-top: 35px;
+  }
+}
+
+.Main {
+  display: flex;
+  flex-direction: row;
+  margin: $size-m;
+
+  .Main__MainArticle {
+    display: flex;
+    flex-basis: 70%;
+    flex-direction: column;
+    margin: 0 $size-m;
+  }
+
+  .Main__ImageContainer {
+    height: 80vh;
+    position: relative;
+    transition: all ease-in-out 1s;
+  }
+
+  .Main__Image {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .Main__Image_Read {
+    height: 25vh;
+    border-top-left-radius: $size-m;
+    border-top-right-radius: $size-m;
+    transition: all 0.3s;
+    overflow: hidden;
+  }
+
+  .Main__Image_Loading {
+    filter: blur(0.75rem);
+    transition: all 0.3s;
+  }
+
+  .Main__Article {
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease-in-out 5s 2s;
+    padding: $size-m;
+    background-color: palette(neutral, white);
+    border-bottom-left-radius: $size-m;
+    border-bottom-right-radius: $size-m;
+  }
+
+  .Main__Article_Read {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .Main__Overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(palette(neutral, black), 0.3);
+    z-index: 2;
+  }
+
+  .Main__Text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  .Main__ReadMore {
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+    font-style: italic;
+    cursor: pointer;
+    color: palette(neutral, black);
+    transition: all 0.3s;
+  }
+
+  .Main__HeadLine {
+    color: palette(neutral, white);
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 1px 0 1px palette(neutral, black);
+    font-style: italic;
+  }
+
+  .Main__SubHeadLine {
+    color: palette(neutral, white);
+    font-size: 1.5rem;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .Main__Author {
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .Main__ChevronContainer {
+    height: 50px;
+  }
+
+  .Main__SidesArticles {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    margin: 0 $size-m;
+    border-left: 4px dotted palette(neutral, neutral);
+  }
+
+  .Main__Chevron {
+    animation: move-to-bottom 1s ease-in-out infinite alternate;
+    border-top: 5px solid palette(neutral, white);
+    border-right: 5px solid palette(neutral, white);
+    border-width: 3px;
+    display: block;
+    height: calc(#{$size-m} + #{$size-s});
+    margin-top: calc(#{$size-m} + #{$size-s});
+    transform: rotate(135deg);
+    text-align: center;
+    width: calc(#{$size-m} + #{$size-s});
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Main {
+    flex-direction: column;
+    margin: 0;
+    .Main__SidesArticles {
+      border-left: none;
+    }
+
+    .Main__Article {
+      margin: 0;
+    }
+
+    .Main__HeadLine {
+      font-size: 1.5rem;
+    }
+
+    .Main__SubHeadLine {
+      font-size: 1rem;
+    }
+
+    .Main__Chevron_Left {
+      margin-left: $size-s;
+    }
+  }
+}

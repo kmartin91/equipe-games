@@ -1,16 +1,5 @@
 @import '../styles/config/all.scss';
 
-/* Standard syntax */
-@keyframes move-to-bottom {
-  from {
-    margin-top: 25px;
-  }
-
-  to {
-    margin-top: 35px;
-  }
-}
-
 html,
 body {
   font-family: futura, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -36,62 +25,6 @@ body {
   text-align: center;
 }
 
-.Articles {
-  display: flex;
-  flex-direction: row;
-  margin: $size-m;
-}
-
-.Main {
-  display: flex;
-  flex-basis: 70%;
-  flex-direction: column;
-  margin: 0 $size-m;
-}
-
-.Image {
-  height: 80vh;
-  position: relative;
-  transition: all ease-in-out 1s;
-}
-
-.Image_Read {
-  height: 25vh;
-  border-top-left-radius: $size-m;
-  border-top-right-radius: $size-m;
-  transition: all 0.3s;
-  overflow: hidden;
-}
-
-.Image_Loading {
-  filter: blur(0.75rem);
-  transition: all 0.3s;
-}
-
-.MainImage {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
-.Overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(palette(neutral, black), 0.3);
-  z-index: 2;
-}
-
-.Sides {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 30%;
-  margin: 0 $size-m;
-  border-left: 4px dotted palette(neutral, neutral);
-}
-
 .Side {
   padding: 0 $size-m $size-m;
   cursor: pointer;
@@ -109,135 +42,10 @@ body {
   border-bottom: 4px dotted palette(neutral, neutral);
 }
 
-.Text {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 3;
-  cursor: pointer;
-}
-
-.ReadMore {
-  font-weight: bold;
-  display: flex;
-  justify-content: flex-end;
-  font-style: italic;
-  cursor: pointer;
-  color: palette(neutral, black);
-  transition: all 0.3s;
-}
-
-.HeadLine {
-  color: palette(neutral, white);
-  font-size: 2.5rem;
-  text-align: center;
-  text-shadow: 1px 0 1px palette(neutral, black);
-  font-style: italic;
-}
-
-.SubHeadLine {
-  color: palette(neutral, white);
-  font-size: 1.5rem;
-  text-align: center;
-  font-style: italic;
-}
-
-.ButtonLikeLink {
-  background: none;
-  border: none;
-  color: palette(neutral, white);
-  padding: 0;
-}
-
-.Return {
-  color: palette(neutral, black);
-  left: $size-l;
-  top: $size-l;
-}
-
-.Article {
-  opacity: 0;
-  visibility: hidden;
-  transition: all ease-in-out 5s 2s;
-  padding: $size-m;
-  background-color: palette(neutral, white);
-  border-bottom-left-radius: $size-m;
-  border-bottom-right-radius: $size-m;
-}
-
-.Article_Read {
-  opacity: 1;
-  visibility: visible;
-}
-
-.ChevronContainer {
-  height: 50px;
-}
-
-.Chevron {
-  animation: move-to-bottom 1s ease-in-out infinite alternate;
-  border-top: 5px solid palette(neutral, white);
-  border-right: 5px solid palette(neutral, white);
-  border-width: 3px;
-  display: block;
-  height: calc(#{$size-m} + #{$size-s});
-  margin-top: calc(#{$size-m} + #{$size-s});
-  transform: rotate(135deg);
-  text-align: center;
-  width: calc(#{$size-m} + #{$size-s});
-}
-
-.Chevron_Left {
-  margin: 0;
-  border-color: palette(neutral, black);
-  animation: none;
-  transform: rotate(225deg);
-  border-width: 5px;
-  width: $size-m;
-  height: $size-m;
-  cursor: pointer;
-  margin-left: $size-l;
-}
-
-.Author {
-  font-style: italic;
-  font-weight: bold;
-  display: flex;
-  justify-content: flex-end;
-}
-
 @media screen and (max-width: 768px) {
-  .Articles {
-    flex-direction: column;
-    margin: 0;
-  }
+  .Content {
+    padding: 0;
 
-  .Sides {
-    border-left: none;
-  }
-
-  .Main {
-    margin: 0;
-  }
-
-  .HeadLine {
-    font-size: 1.5rem;
-  }
-
-  .SubHeadLine {
-    font-size: 1rem;
-  }
-
-  .Chevron_Left {
-    margin-left: $size-s;
-  }
-
-  .Menu > ul {
-    margin-right: 0;
+    padding-top: ($size-m * 2) + $size-xl + $size-m + $size-s;
   }
 }
