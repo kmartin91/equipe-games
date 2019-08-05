@@ -10,6 +10,7 @@ import Logo from './logo-color.svg';
 import './App.scss';
 
 import * as informations from './data/informations.json';
+import Archive from './Archive.js';
 
 const authorIntroductions = [
   'Propos recueillis par ',
@@ -37,16 +38,29 @@ async function getNewImage(articles) {
   }
 }
 
+function getLastData() {
+  const orderedInfos = informations.data.sort((a, b) => a > b);
+
+  return orderedInfos[orderedInfos.length - 1];
+}
+
+function getWeekData(weekNumber) {
+  const data = informations.data.find(information => information.order === weekNumber);
+
+  return data ? data : getLastData();
+}
+
 const App = ({ location }) => {
   const [weekInformations, setWeekInformations] = useState({});
   const [mainInformation, setMainInformation] = useState({});
   const [currentImage, setCurrentImage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isReading, setIsReading] = useState(false);
-  const { week: weekKey } = queryString.parse(location.search) || {};
+  const [isArchive, setIsArchive] = useState(false);
+  const { week: weekNumber } = queryString.parse(location.search) || {};
 
   useEffect(() => {
-    const weekInformation = informations[weekKey] ? informations[weekKey] : informations['week1'];
+    const weekInformation = weekNumber ? getWeekData(parseInt(weekNumber, 10)) : getLastData();
     setWeekInformations(weekInformation);
     setIsLoading(true);
     async function getImage() {
@@ -58,7 +72,7 @@ const App = ({ location }) => {
     }
 
     getImage();
-  }, [location.search, weekKey]);
+  }, [location.search, weekNumber]);
 
   useEffect(() => {}, [mainInformation]);
 
@@ -85,6 +99,7 @@ const App = ({ location }) => {
   };
 
   const backHome = event => {
+    setIsArchive(false);
     setIsReading(false);
   };
 
@@ -92,7 +107,7 @@ const App = ({ location }) => {
   const { articles = [] } = weekInformations || {};
   const htmlTitle = title && title.length > 16 ? `${title.substring(0, 16)}...` : title;
 
-  const url = weekKey ? `/?week=${weekKey}` : '/';
+  const url = weekNumber ? `/?week=${weekNumber}` : '/';
   const authorIntroduction =
     authorIntroductions[Math.floor(Math.random() * authorIntroductions.length)];
 
@@ -102,9 +117,17 @@ const App = ({ location }) => {
         <title>{`${htmlTitle || ''} - Equipe.Games`}</title>
         <meta charSet="utf-8" />
       </Helmet>
-      <Header url={url} logo={Logo} isHome={!isReading} backHome={backHome} />
+      <Header
+        url={url}
+        logo={Logo}
+        isHome={!isReading && !isArchive}
+        showMenu={informations.data.length > 1}
+        backHome={backHome}
+        goToArchive={() => setIsArchive(true)}
+      />
       <div className="Content">
-        {currentImage && (
+        {isArchive && <Archive informations={informations.data} />}
+        {!isArchive && currentImage && (
           <div className="Articles">
             <div className="Main">
               <div

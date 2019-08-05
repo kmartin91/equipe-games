@@ -1,0 +1,48 @@
+/* define Header */
+@import '../styles/config/all.scss';
+
+.Header {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  height: 75px;
+
+  /* 17px is the scrollbar */
+  width: calc(100% - #{$size-m});
+  z-index: 10;
+  padding: $size-m;
+  background-color: palette(neutral, light);
+
+  ul {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+  }
+
+  li {
+    display: list-item;
+    text-align: left;
+  }
+
+  .Header__HeaderZone {
+    display: flex;
+    flex: 1;
+  }
+  .Header__Menu {
+    justify-content: flex-end;
+    ul {
+      margin-right: $size-l + $size-m;
+
+      li {
+        padding: $size-m;
+        cursor: pointer;
+      }
+    }
+  }
+  .Header__Logo {
+    justify-content: center;
+  }
+}
