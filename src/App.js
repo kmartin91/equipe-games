@@ -24,10 +24,23 @@ const authorIntroductions = [
   "Envoyé à l'impression par ",
 ];
 
+async function getNewImage(articles) {
+  const newImage = await getRandomSoccerImage();
+  if (articles.some(article => article.image === newImage)) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(getNewImage(articles));
+      }, 500);
+    });
+  } else {
+    return newImage;
+  }
+}
+
 const App = ({ location }) => {
   const [weekInformations, setWeekInformations] = useState({});
   const [mainInformation, setMainInformation] = useState({});
-  const [randomImage, setRandomImage] = useState('');
+  const [currentImage, setCurrentImage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isReading, setIsReading] = useState(false);
   const { week: weekKey } = queryString.parse(location.search) || {};
@@ -35,12 +48,12 @@ const App = ({ location }) => {
   useEffect(() => {
     const weekInformation = informations[weekKey] ? informations[weekKey] : informations['week1'];
     setWeekInformations(weekInformation);
-    setMainInformation(weekInformation.articles[0]);
-
     setIsLoading(true);
     async function getImage() {
       const image = await getRandomSoccerImage();
-      setRandomImage(image);
+      weekInformation.articles[0].image = image;
+      setMainInformation(weekInformation.articles[0]);
+      setCurrentImage(image);
       setIsLoading(false);
     }
 
@@ -54,15 +67,19 @@ const App = ({ location }) => {
     setIsReading(true);
   };
 
-  const handleReadArticle = article => {
-    setMainInformation(article);
+  const handleReadArticle = articleIndex => {
+    setMainInformation(articles[articleIndex]);
     setIsLoading(true);
+
     async function getImage() {
-      const image = await getRandomSoccerImage();
-      setRandomImage(image);
-      setIsLoading(false);
+      if (!articles[articleIndex].image) {
+        articles[articleIndex].image = await getNewImage(articles);
+      }
+      setCurrentImage(articles[articleIndex].image);
       setIsReading(true);
+      setIsLoading(false);
     }
+
     window.scrollTo(0, 0);
     getImage();
   };
@@ -87,7 +104,7 @@ const App = ({ location }) => {
       </Helmet>
       <Header url={url} logo={Logo} isHome={!isReading} backHome={backHome} />
       <div className="Content">
-        {randomImage && (
+        {currentImage && (
           <div className="Articles">
             <div className="Main">
               <div
@@ -96,7 +113,7 @@ const App = ({ location }) => {
                   Image_Loading: isLoading,
                 })}
               >
-                <img src={randomImage} className="MainImage" alt="La folie à la Beaujoire" />
+                <img src={currentImage} className="MainImage" alt="La folie à la Beaujoire" />
                 <div className="Overlay" />
                 <div className="Text" onClick={readInfo}>
                   <div className="HeadLine">"&nbsp;{title}&nbsp;"</div>
@@ -121,11 +138,15 @@ const App = ({ location }) => {
               )}
             </div>
             <div className="Sides">
-              {articles.map((article, key) => {
+              {articles.map((article, index) => {
                 const { title, subtitle, message } = article || {};
                 if (title === mainInformation.title) return null;
                 return (
-                  <div className="Side" key={title} onClick={() => handleReadArticle(article)}>
+                  <div
+                    className="Side"
+                    key={`${title}-${index}`}
+                    onClick={() => handleReadArticle(index)}
+                  >
                     <h2>{title}</h2>
                     <h3>{subtitle}</h3>
                     <p>{message[0].substring(0, 200)}</p>
@@ -138,7 +159,7 @@ const App = ({ location }) => {
             </div>
           </div>
         )}
-        {!randomImage && (
+        {!currentImage && (
           <div className="Loader">Un peu de patience mordu du football, le site charge</div>
         )}
       </div>

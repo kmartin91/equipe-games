@@ -14,7 +14,7 @@ const Header = ({ isHome, url, logo, backHome }) => {
         <img src={logo} alt="Equipe Games, le meilleur site sportif" />
       </a>
       <div className="HeaderZone Menu">
-        <ul>{process.env.REACT_APP_ENV !== 'development' && <li>Archive</li>}</ul>
+        <ul>{process.env.REACT_APP_ENV === 'development' && <li>Archive</li>}</ul>
       </div>
     </header>
   );
