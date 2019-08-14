@@ -2,14 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import queryString from 'query-string';
 
-import { getRandomSoccerImage } from './utils/helpers.js';
-import Header from './Header';
-import Logo from './logo-color.svg';
+import { getRandomSoccerImage } from '../../utils/helpers.js';
+import Header from '../Header/Header';
+import Result from '../Result/Result';
+import Toggle from '../Toggle/Toggle';
+import Ladder from '../Ladder/Ladder';
+import NextMatch from '../NextMatch/NextMatch';
+import Logo from '../../svg/logo-color.svg';
 import './App.scss';
 
-import * as informations from './data/informations.json';
-import Archive from './Archive.js';
-import Main from './Main.js';
+import * as informations from '../../data/informations.json';
+import Archive from '../Archive/Archive';
+import Main from '../Main/Main';
 
 function getLastData() {
   const orderedInfos = informations.data.sort((a, b) => a.order > b.order);
@@ -17,10 +21,34 @@ function getLastData() {
   return orderedInfos[orderedInfos.length - 1];
 }
 
+function getLastWeek() {
+  const orderedInfos = informations.data.sort((a, b) => a.order > b.order);
+
+  return orderedInfos.length;
+}
+
 function getWeekData(weekNumber) {
   const data = informations.data.find(information => information.order === weekNumber);
 
   return data ? data : getLastData();
+}
+
+function getToggleTabs({ weekNumber }) {
+  const lastWeeKNumber = getLastWeek();
+  return [
+    {
+      title: 'Resultat',
+      content: <Result weekNumber={weekNumber || lastWeeKNumber} />,
+    },
+    {
+      title: 'Classement',
+      content: <Ladder />,
+    },
+    {
+      title: 'Prochaine rencontre',
+      content: <NextMatch />,
+    },
+  ];
 }
 
 const App = ({ location }) => {
@@ -84,6 +112,7 @@ const App = ({ location }) => {
             weekInformations={weekInformations}
           />
         )}
+        {!isArchive && currentImage && <Toggle tabs={getToggleTabs({ weekNumber })} />}
         {!currentImage && (
           <div className="Loader">Un peu de patience mordu du football, le site charge</div>
         )}

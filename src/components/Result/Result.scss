@@ -1,0 +1,50 @@
+/* define Result */
+
+@import '../../../styles/config/all.scss';
+
+.Result {
+  display: flex;
+  flex-direction: column;
+  margin: 0 $size-l;
+  align-items: center;
+  padding: $size-m 0;
+}
+
+.Result__Match {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.Result__Home,
+.Result__Away {
+  width: 100%;
+}
+
+.Result__Score {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Result__Number {
+  width: $size-m;
+  margin: $size-s;
+  padding: $size-xs;
+  border-radius: $size-xs;
+  border: solid 2px rgba(palette(neutral, red), 0.4);
+  text-decoration: none;
+  text-align: center;
+  color: palette(neutral, red);
+  background-color: rgba(palette(neutral, red), 0.2);
+}
+
+.Result__Number_Winner {
+  border: solid 2px rgba(palette(neutral, green), 0.4);
+  background-color: rgba(palette(neutral, green), 0.2);
+  color: palette(neutral, green);
+}
+
+.Result__Separator {
+  font-size: 1.5rem;
+}

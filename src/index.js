@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import App from './components/App/App';
 
 ReactDOM.render(
   <div className="App">
@@ -14,5 +14,5 @@ ReactDOM.render(
       <Route path="/" exact component={App} />
     </Router>
   </div>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
