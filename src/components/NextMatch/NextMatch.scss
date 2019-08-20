@@ -1,0 +1,22 @@
+/* define NextMatch */
+
+@import '../../../styles/config/all.scss';
+
+.NextMatch {
+  display: flex;
+  flex-basis: 70%;
+  flex-direction: column;
+  margin: 0 $size-l;
+  align-items: center;
+  padding: $size-m 0;
+}
+
+.NextMatch__Match {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.NextMatch__Separator {
+  padding: 0 $size-xs;
+}

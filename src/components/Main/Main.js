@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
-import Lines from './Lines';
-import { getRandomSoccerImage } from './utils/helpers.js';
+import Lines from '../Lines/Lines';
+import { getRandomSoccerImage } from '../../utils/helpers.js';
 
 import './Main.scss';
 

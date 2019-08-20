@@ -1,5 +1,5 @@
 /* define Header */
-@import '../styles/config/all.scss';
+@import '../../../styles/config/all.scss';
 
 .Header {
   display: flex;
@@ -31,8 +31,10 @@
     display: flex;
     flex: 1;
   }
+
   .Header__Menu {
     justify-content: flex-end;
+
     ul {
       margin-right: $size-l + $size-m;
 
@@ -42,6 +44,7 @@
       }
     }
   }
+
   .Header__Logo {
     justify-content: center;
   }
@@ -72,6 +75,7 @@
         margin-right: 0;
       }
     }
+
     .Header__Chevron_Left {
       margin-left: $size-s;
     }

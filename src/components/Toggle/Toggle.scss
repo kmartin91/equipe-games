@@ -1,0 +1,61 @@
+/* define Toggle */
+
+@import '../../../styles/config/all.scss';
+
+.Toggle {
+  display: flex;
+  flex-direction: column;
+  flex: 1 auto;
+  margin: $size-m;
+}
+
+.Toggle__Header {
+  align-self: center;
+}
+
+.Toggle__HeaderButton {
+  background-color: palette(neutral, white);
+  border: none;
+  border-left: rgba(palette(neutral, red), 0.2) 1px solid;
+  color: palette(neutral, red);
+  cursor: pointer;
+  font-weight: bold;
+  padding: $size-m;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all ease-in-out 1s;
+
+  &:first-child {
+    border: none;
+  }
+}
+
+.Toggle__HeaderButton_Active {
+  color: palette(neutral, white);
+  background-color: palette(neutral, red);
+  outline: none;
+}
+
+.Toggle__Content {
+  margin: 0 $size-m;
+}
+
+.Toggle__ContentChildren {
+  background-color: palette(neutral, white);
+  display: none;
+  min-height: 80px;
+  border-bottom-left-radius: $size-xs;
+  border-bottom-right-radius: $size-xs;
+}
+
+.Toggle__ContentChildre_Show {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .Toggle__HeaderButton {
+    &:nth-child(n + 3) {
+      display: none;
+    }
+  }
+}

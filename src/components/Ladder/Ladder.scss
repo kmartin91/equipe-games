@@ -1,0 +1,43 @@
+/* define Ladder */
+
+@import '../../../styles/config/all.scss';
+
+.Ladder {
+  padding: $size-m;
+}
+
+.Ladder__Header,
+.Ladder__Line {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: '. . . . . . .';
+}
+
+.Ladder__Header {
+  background: rgba(palette(neutral, red), 1);
+  color: palette(neutral, white);
+  padding: $size-s 0;
+}
+
+.Ladder__Line {
+  background: palette(neutral, white);
+  padding: $size-s 0;
+
+  &:nth-child(odd) {
+    background: rgba(palette(neutral, neutral), 0.1);
+  }
+}
+
+.Ladder__LineCol {
+  border-right: 1px solid rgba(palette(neutral, red), 0.2);
+}
+
+.Ladder__LineCol,
+.Ladder__HeaderCol {
+  text-align: center;
+}
+
+.Ladder__LinePoints {
+  font-weight: 700;
+}

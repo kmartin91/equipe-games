@@ -1,4 +1,4 @@
-@import '../styles/config/all.scss';
+@import '../../../styles/config/all.scss';
 
 html,
 body {
@@ -45,7 +45,6 @@ body {
 @media screen and (max-width: 768px) {
   .Content {
     padding: 0;
-
     padding-top: ($size-m * 2) + $size-xl + $size-m + $size-s;
   }
 }

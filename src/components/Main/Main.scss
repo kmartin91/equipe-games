@@ -1,6 +1,6 @@
 /* define Main */
 
-@import '../styles/config/all.scss';
+@import '../../../styles/config/all.scss';
 
 /* Standard syntax */
 @keyframes move-to-bottom {
@@ -150,6 +150,7 @@
   .Main {
     flex-direction: column;
     margin: 0;
+
     .Main__SidesArticles {
       border-left: none;
     }

@@ -6,7 +6,8 @@ Le faux-vrai site des conférences d'après-match MPG
 
 # Futures Features!
 
-  - Voir les archives de chaque semaine
+  - Bot pour récupérer les informations de la ligue
+  - Saisir sa conférence directement via le bot
 
 
 ### Installation
