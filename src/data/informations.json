@@ -129,6 +129,78 @@
           ]
         }
       ]
+    },
+    {
+      "order": 3,
+      "articles": [
+          {
+              "author": "Stéphane Guy Varche",
+              "title": "Des amateurs !",
+              "subtitle": "Encore une fois l'équipe de l'ASM perd.",
+              "message": [
+                  "La mine défaite, c'est avec une certaine incompréhension que le coach de l'ASM a répondu à nos questions: ",
+                  "",
+                  "\"J'ai beau tenté des nouvelles tactiques, l'équipe a l'air d'être autant à l'aise avec le ballon qu'un écureuil albinos en pleine méditéranée\"",
+                  "",
+                  "Des joueurs ternes, une tactique loin d'être optimal et un adversaire dans une forme spéctaculaire, voilà le cocktail explosif qui a encore empêché la première victoire de l'ASM",
+                  "",
+                  "\"A part Deminguet je n'ai vu personne sur le terrain, c'est dommage, j'en attendais beaucoup des nouveaux joueurs \" nous confie le fameux entraineur.",
+                  "Malgré la défaite, l'entraineur a voulu rester optimiste, \"C'est bien dommage d'avoir un jeu aussi pauvre, on ne pourra jamais gagner en jouant comme ça, on va devoir revoir tout notre plan pour être d'attaque et tenter d'avoir notre vengeance contre les GPL\"",
+                  "",
+                  "Avec une défaite 1-2 à domicile, l'équipe va chercher à battre un outsider de la ligue",
+                  "",
+                  "\"On est toujours à la recherche de notre première victoire de la saison, je suis sûr qu'elle arrivera au prochain w-e\", c'est en tout cas tout ce que nous souhaitons à cette équipe"
+              ]
+          },
+          {
+              "author": "Donnie Thornberry",
+              "title": "Un peu de douceur dans ce monde de pute",
+              "subtitle": "Un coach GPL tire à boulet rouge",
+              "message": [
+                  "Après sa victoire 1 à 0 face au Paris Sportif Monaco, le coach du GPL nous a livré ses émotions sur un plateau d'argent :",
+                  "",
+                  "\"Mon sermont de la semaine dernière a apparemment produit ses effets, tout comme le nouveau traitement concocté par le Dr. Virenque.",
+                  "",
+                  "C’était un match plutôt terne mais on a réussi à faire la différence grâce à Momo, il m’a régalé sur sa frappe sèche et nervurée. C’est vraiment un mec comme ça ( fais le signe du pouce en l’air)",
+                  "",
+                  "Je voudrais saluer le coach Axel qui a aligné une défense solide en mode « No pasaran », ce fut un vrai travail de sape pour réussir à lui mettre au fond.",
+                  "",
+                  "Par ailleurs, je voudrais revenir sur les propos tenus par le coach Maxime, la semaine dernière, et vous faire savoir que j’ai des informations compromettantes le concernant notamment en ce qui concerne ses pratiques de recrutement « low-cost » puisqu’il a recours à des holdings luxembourgeoises afin de spéculer sur des joueurs. Je n’ai donc aucune leçon à recevoir de ce genre d’individus qui pourrissent l’image du football, je suis donc déçu que le coach Kevin n’est pas réussi à lui faire « manger ses morts », si vous voyez ce que je veux dire (air malicieux).",
+                  "",
+                  "Allez je vous embrasse, j’ai 50 millions à claquer à la tombola de Perros-Guirec\"",
+                  "",
+                  "Et c'est avec sa malice habituelle que le selectionneur victorieux est reparti voir ses hommes au vestiaire afin de les féliciter à juste titre."
+              ]
+          }, 
+          {
+              "author": "Bianca Bernard",
+              "title": "Le rouleau compresseur",
+              "subtitle":"Le diesel a démarré",
+              "message": [
+                  "La machine est lancée, et je pense qu’elle sera inarretable. Nous avons maintenant un groupe au complet pret a casser des gueules comme notre sponsor : j’en place une pour pastis.",
+                  "",
+                  "Notre attaque de feu risque de faire mal a notre prochain adversaire meme si le plus important c’est les 3 points, nous avons plusieurs fleche a notre arbalete.",
+                  "",
+                  "Grand prince, le coach du PastisFC est resté courtois face aux allégations de ses adversaires.",
+                  "",
+                  "Le prochain match du PFC se déroulera au stade Emile Louis II et promet d'être un véritable spectacle."
+              ]
+          },
+          {
+              "author": "Vincent Lagauffre",
+              "title": "La débandade",
+              "subtitle":"On n'a pas encore touché le fond",
+              "message": [
+                  "C'est avec une petite mine qu'on a retrouvé Richard Yujekok après son match raté face au GPL. Il a accepté de nous livrer ses émotions après cette cuisante défaite :",
+                  "",
+                  "\"Oui, c'est vrai qu'on avait misé beaucoup sur ce match qui semblait être le moins compliqué à remporter... On n'a pas eu de chance, une de leurs chèvres a réussi à en mettre un au fond des filets...",
+                  "",
+                  "Tant pis, on va se reprendre, tant que c'est pas fini, c'est pas fini ! On va croquer le PFC et ce sera réglé ! Je ne suis pas du genre à arrêter au premier obstacle, et je suis déterminer à faire taire les langues de vipères qui prévoient un nauffrage du club.\"",
+                  "",
+                  "Le PSM retrouvera le Pastis FC pour en découdre avec l'actuel leader du championnat."
+              ]
+          }
+      ]
     }
   ]
 }
